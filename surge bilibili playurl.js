@@ -1,4 +1,8 @@
 //https://api.bilibili.com/pgc/player/api/playurl
+
+// 服务器已关闭，仅做参考
+
+
 let url = $request.url
 
 function getParams(key){

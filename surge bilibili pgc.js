@@ -1,4 +1,8 @@
 //https://api.bilibili.com/pgc/view/app/season
+
+// 服务器已关闭，仅做参考
+
+
 let url = $request.url
 
 
