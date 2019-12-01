@@ -88,12 +88,7 @@ async function getSeasonArea(season) {
 
 async function getSeasonInfo(season, proxy) {
   let resp = await fetch(`${proxy}?season_id=${season}`)
-
-  if (resp.status !== 200) {
-    return await resp.text()
-  } else {
-    return await resp.text()
-  }
+  return await resp.text()
 }
 
 
@@ -119,10 +114,5 @@ async function getPlayArea(cid) {
 
 async function getPlayInfo(cid, ep_id, proxy) {
   let resp = await fetch(`${proxy}?cid=${cid}&ep_id=${ep_id}`)
-
-  if (resp.status !== 200) {
-    return await resp.text()
-  } else {
-    return await resp.text()
-  }
+  return await resp.text()
 }
