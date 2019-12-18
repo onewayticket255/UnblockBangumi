@@ -1,6 +1,6 @@
 const appkey = require('../config.js').BASE_APPKET
 
-let params = {
+const params = {
     'actionKey': 'appkey',
     'appkey': appkey,
     'build': '8960',
@@ -16,13 +16,11 @@ const headers = {
     'User-Agent': 'bili-universal/8960 CFNetwork/1120 Darwin/19.0.0 os/ios',
 }
 
-let options = {
+const options = {
     url: '',
     method: 'POST',
     headers,
 }
-
-
 
 
 module.exports = { params, options }

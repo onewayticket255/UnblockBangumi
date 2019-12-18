@@ -1,6 +1,6 @@
 const crypto = require('crypto')
 
-function rsaEncrypt(key, text) {
+const rsaEncrypt = (key, text) => {
     return crypto.publicEncrypt(
         {
             key: key,

@@ -3,13 +3,13 @@ const config = require('./config.js')
 const { baseSign, videoSign, makeParams } = require('./model/sign.js')
 const { rsaEncrypt } = require('./model/rsa.js')
 
-let getKey = require('./model/getKey.js')
-let oauth = require('./model/oauth.js')
-let season = require('./model/season.js')
-let playurl = require('./model/playurl.js')
+const getKey = require('./model/getKey.js')
+const oauth = require('./model/oauth.js')
+const season = require('./model/season.js')
+const playurl = require('./model/playurl.js')
 
 
-async function net_getKey(ts) {
+const net_getKey = async ts => {
     getKey.params.ts = ts
     getKey.options.url = `https://passport.bilibili.com/api/oauth2/getKey?${makeParams(getKey.params, baseSign)}`
     let resp = await axios(getKey.options)
@@ -17,7 +17,7 @@ async function net_getKey(ts) {
     return resp.data
 }
 
-async function net_oauth(response, ts) {
+const net_oauth = async (response, ts) => {
     let hash = response.data.hash
     let rsakey = response.data.key
 
@@ -31,13 +31,13 @@ async function net_oauth(response, ts) {
 }
 
 
-async function net_getAccessKey(ts) {
+const net_getAccessKey = async ts => {
     let res1 = await net_getKey(ts)
     let res2 = await net_oauth(res1, ts)
     return res2.data.token_info.access_token
 }
 
-async function net_season(access_key, season_id, ts) {
+const net_season = async (access_key, season_id, ts) => {
     season.params.access_key = access_key
     season.params.season_id = season_id
     season.params.ts = ts
@@ -49,11 +49,11 @@ async function net_season(access_key, season_id, ts) {
 
     let resp = await axios(season.options)
     console.log(resp.data)
-   
+
     return resp.data
 }
 
-async function net_playurl(access_key, cid, ep_id, ts) {
+const net_playurl = async (access_key, cid, ep_id, ts) => {
     playurl.params.access_key = access_key
     playurl.params.ts = ts
     playurl.params.ep_id = ep_id
@@ -65,7 +65,7 @@ async function net_playurl(access_key, cid, ep_id, ts) {
 
     let resp = await axios(playurl.options)
     console.log(resp.data)
-    
+
     return resp.data
 
 }

@@ -7,7 +7,7 @@ const headers = {
     'User-Agent': 'Bilibili Freedoooooom/MarkII',
 }
 
-let params = {
+const params = {
     'access_key': '',
     'actionKey': 'appkey',
     'appkey': appkey,
@@ -25,7 +25,7 @@ let params = {
     'ts': ''
 }
 
-let options = {
+const options = {
     url: '',
     method: 'GET',
     headers,

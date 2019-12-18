@@ -1,7 +1,7 @@
 const appkey = require('../config.js').BASE_APPKET
 const username = require('../config.js').USERNAME
 
-let params = {
+const params = {
     'actionKey': 'appkey',
     'appkey': appkey,
     'appver': '8960',
@@ -29,7 +29,7 @@ const headers = {
 
 }
 
-let options = {
+const options = {
     url: `https://passport.bilibili.com/api/v3/oauth2/login`,
     method: 'POST',
     headers,
