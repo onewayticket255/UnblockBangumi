@@ -4,7 +4,7 @@ const network = require('./bilibili/network.js')
 
 let accessKey = ''
 
-const unixtime = () => { return Math.round(Date.now() / 1000) }
+const unixtime = () => Math.round(Date.now() / 1000) 
 const init = async () => {
     accessKey = await network.net_getAccessKey(unixtime())
     console.log(accessKey)
@@ -43,7 +43,7 @@ HttpServer.listen(HttpPort, () => console.log(`HttpServer Start at ${HttpPort}`)
         }
         else {       //wrong 
             response.writeHead(404, { 'Content-Type': 'application/json' })
-            response.end("Wrong")
+            response.end('Wrong')
         }
 
     })

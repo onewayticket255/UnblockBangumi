@@ -30,7 +30,7 @@ const headers = {
 }
 
 const options = {
-    url: `https://passport.bilibili.com/api/v3/oauth2/login`,
+    url: 'https://passport.bilibili.com/api/v3/oauth2/login',
     method: 'POST',
     headers,
     data: ''
