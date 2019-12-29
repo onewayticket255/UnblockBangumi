@@ -1,16 +1,14 @@
 //https://api.bilibili.com/pgc/player/api/playurl
 
-
-let url = $request.url
+const url = $request.url
 
 function getParams(key) {
-    let regex = new RegExp(`${key}=(\\d*?)&`)
-    let tmp = regex.exec(url)
+    const regex = new RegExp(`${key}=(\\d*?)&`)
+    const tmp = regex.exec(url)
     return tmp[1]
 }
 
-
-let api = `https://bilibili.mlyx.workers.dev/?cid=${getParams('cid')}&ep_id=${getParams('ep_id')}`
+const api = `https://bilibili.mlyx.workers.dev/?cid=${getParams('cid')}&ep_id=${getParams('ep_id')}`
 
 $httpClient.get(api, (error, response, body) => {
     if (error || response.status == 404) {

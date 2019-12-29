@@ -1,13 +1,10 @@
-let biliplus = 'https://www.biliplus.com/'
-let CN_PROXY = ''
-let TW_PROXY = ''
-
-
+const biliplus = 'https://www.biliplus.com/'
+const CN_PROXY = ''
+const TW_PROXY = ''
 
 addEventListener('fetch', event => {
   event.respondWith(handleRequest(event.request))
 })
-
 
 
 async function handleRequest(request) {
