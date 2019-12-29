@@ -11,7 +11,7 @@ function getParams(key) {
     }
 }
 
-let season_id = getParams("season_id")
+let season_id = getParams("season_id")||getParams("ep_id")
 
 if (season_id) {
 
