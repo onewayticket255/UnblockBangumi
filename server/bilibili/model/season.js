@@ -20,7 +20,8 @@ const headers = {
 }
 
 const options = {
-    url: '',
+    url:'',
+    baseUrl:'https://api.bilibili.com/pgc/view/app/season?',
     method: 'GET',
     headers,
 

@@ -33,7 +33,7 @@ const options = {
     url: 'https://passport.bilibili.com/api/v3/oauth2/login',
     method: 'POST',
     headers,
-    data: ''
+    body: ''
 }
 
 module.exports = { params, options }

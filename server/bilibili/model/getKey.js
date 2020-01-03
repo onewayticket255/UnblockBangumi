@@ -17,7 +17,8 @@ const headers = {
 }
 
 const options = {
-    url: '',
+    url:'',
+    baseUrl: 'https://passport.bilibili.com/api/oauth2/getKey?', 
     method: 'POST',
     headers,
 }

@@ -26,7 +26,8 @@ const params = {
 }
 
 const options = {
-    url: '',
+    url:'',
+    baseUrl:'https://api.bilibili.com/pgc/player/api/playurl?',
     method: 'GET',
     headers,
 

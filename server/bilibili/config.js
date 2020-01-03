@@ -1,5 +1,3 @@
-/* 填写用户，密码 
-*/
 const USERNAME=''
 const PASSWD=''
 
