@@ -1,7 +1,6 @@
 const config = require('./config.js')
 const { baseSign, videoSign, makeParams } = require('./model/sign.js')
 const { rsaEncrypt } = require('./model/rsa.js')
-const { parse } = require('url')
 const http = require('http')
 const https = require('https')
 const getKey = require('./model/getKey.js')
@@ -66,7 +65,7 @@ const net_playurl = async (access_key, cid, ep_id, ts) => {
 
 const request = ctx => new Promise((resolve, reject) => {
     const { url, headers, method, body } = ctx
-    const reqUrl = parse(url)
+    const reqUrl = new URL(url)
     const protocol = reqUrl.protocol
     const port = protocol == 'https:' ? 443 : 80
     const hostname = reqUrl.hostname
