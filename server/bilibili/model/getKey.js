@@ -13,6 +13,7 @@ const params = {
 const headers = {
     'Host': 'passport.bilibili.com',
     'APP-KEY': 'iphone',
+    'Content-Type': 'application/x-www-form-urlencoded',
     'User-Agent': 'bili-universal/8960 CFNetwork/1120 Darwin/19.0.0 os/ios',
 }
 
@@ -21,6 +22,7 @@ const options = {
     baseUrl: 'https://passport.bilibili.com/api/oauth2/getKey?', 
     method: 'POST',
     headers,
+    body:''
 }
 
 

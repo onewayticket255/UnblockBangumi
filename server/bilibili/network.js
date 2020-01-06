@@ -13,6 +13,7 @@ const playurl = require('./model/playurl.js')
 const net_getKey = async ts => {
     getKey.params.ts = ts
     getKey.options.url = getKey.options.baseUrl + makeParams(getKey.params, baseSign)
+    getKey.options.body = makeParams(getKey.params, baseSign)
     const response = await request(getKey.options)
     return response
 }
@@ -69,7 +70,7 @@ const request = ctx => new Promise((resolve, reject) => {
     const protocol = reqUrl.protocol
     const port = protocol == 'https:' ? 443 : 80
     const hostname = reqUrl.hostname
-    const path = reqUrl.path
+    const path = reqUrl.pathname + reqUrl.search
     const options = { hostname, port, path, method, headers }
 
     const req = protocol == 'https:' ? https.request(options) : http.request(options)
