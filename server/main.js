@@ -1,5 +1,5 @@
 const http = require('http')
-const network = require('./bilibili/network.js')
+const { net_getAccessKey, net_season, net_playurl } = require('./bilibili/network.js')
 
 let accessKey = ''
 
@@ -8,10 +8,10 @@ const unixtime = () => Math.round(Date.now() / 1000)
 process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0
 
 const init = async () => {
-    accessKey = await network.net_getAccessKey(unixtime())
+    accessKey = await net_getAccessKey(unixtime())
     console.log(accessKey)
     setInterval(async () => {
-        accessKey = await network.net_getAccessKey(unixtime())
+        accessKey = await net_getAccessKey(unixtime())
     }, 2100000000) //大概20天登录一次
 }
 
@@ -33,13 +33,13 @@ HttpServer.on('request', async (request, response) => {
         cid&ep_id: ${cid}, ${ep_id}`)
 
     if (season_id) {     //season
-        const data = await network.net_season(accessKey, season_id, unixtime())
+        const data = await net_season(accessKey, season_id, unixtime())
         console.log(data)
         response.writeHead(200, { 'Content-Type': 'application/json' })
         response.end(JSON.stringify(data))
     }
     else if (cid) {    //playurl
-        const data = await network.net_playurl(accessKey, cid, ep_id, unixtime())
+        const data = await net_playurl(accessKey, cid, ep_id, unixtime())
         console.log(data)
         response.writeHead(200, { 'Content-Type': 'application/json' })
         response.end(JSON.stringify(data))

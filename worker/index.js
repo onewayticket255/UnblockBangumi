@@ -9,7 +9,6 @@ addEventListener('fetch', event => {
 
 async function handleRequest(request) {
   let requestUrl = new URL(request.url)
-
   let season_id = requestUrl.searchParams.get('season_id')
   let cid = requestUrl.searchParams.get('cid')
   let ep_id = requestUrl.searchParams.get('ep_id')
@@ -67,7 +66,6 @@ async function handleRequest(request) {
 
 async function getSeasonArea(season) {
   let resp = await fetch(`${biliplus}api/bangumi?season=${season}`)
-
   let data = await resp.json()
   if (data.code != 0) {
     console.log('wrong season id')
@@ -91,9 +89,7 @@ async function getSeasonInfo(season, proxy) {
 
 
 async function getPlayArea(cid) {
-
   let resp = await fetch(`${biliplus}api/cidinfo?cid=${cid}`)
-
   let data = await resp.json()
   if (data.code != 0) {
     console.log('wrong cid')
