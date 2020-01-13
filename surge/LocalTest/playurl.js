@@ -5,7 +5,7 @@ const url = $request.url
 function getParams(key) {
     const regex = new RegExp(`${key}=(\\d*?)&`)
     const tmp = regex.exec(url)
-    return tmp[1]
+    return tmp ? tmp[1] : null
 }
 
 const api = `${localServer}?cid=${getParams('cid')}&ep_id=${getParams('ep_id')}`

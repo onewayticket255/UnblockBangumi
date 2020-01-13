@@ -6,9 +6,7 @@ const body = JSON.parse($response.body)
 function getParams(key) {
     const regex = new RegExp(`${key}=(\\d*?)&`)
     const tmp = regex.exec(url)
-    if (tmp) {
-        return tmp[1]
-    }
+    return tmp ? tmp[1] : null
 }
 
 function getSeasonInfo(season_id) {
